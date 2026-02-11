@@ -6,7 +6,7 @@ export default function ProtectedRoute({ children }: { children: React.ReactNode
     const { user, loading } = useAuth()
 
     // Show a loading state while checking authentication
-    if (loading) return <div className="text-center mt-10"> Loading...</div>
+    if (loading) return <div className="text-center mt-10">Loading...</div>
 
     if (!user) return <Navigate to='/auth' replace />
 

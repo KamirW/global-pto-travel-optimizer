@@ -8,8 +8,10 @@ type AuthContextType = {
   signOut: () => Promise<void>;
 };
 
+// Create a context that will hold the authentication state and functions 
 const AuthContext = createContext<AuthContextType | null>(null);
 
+// Provider component that populates the AuthContext with the current user and authentication functions
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -38,9 +40,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     await supabase.auth.signOut();
   };
 
+  // Provide the user and authentication functions to the rest of the app
   return <AuthContext.Provider value={{ user, loading, signOut }}>{children}</AuthContext.Provider>;
 };
 
+// Custom hook to access the AuthContext and ensure it's used within the AuthProvider
 export const useAuth = () => {
   const context = useContext(AuthContext);
 

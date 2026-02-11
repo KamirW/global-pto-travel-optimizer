@@ -4,6 +4,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 import AuthPage from './pages/Auth/Auth'
 import PTOPlansPage from './pages/PTOPlans/PtoPlans'
 import TripsPage from './pages/Trips/Trips'
+import NewPTOPlanPage from './pages/PTOPlans/NewPTOPlan'
 
 export default function App() {
     return (
@@ -14,6 +15,8 @@ export default function App() {
 
                 {/* Protected Routes */}
                 <Route path='/ptoplans' element={<ProtectedRoute><PTOPlansPage /></ProtectedRoute>} />
+                
+                <Route path='/ptoplans/new' element={<ProtectedRoute><NewPTOPlanPage /></ProtectedRoute>} />
 
                 <Route path='/trips' element={<ProtectedRoute><TripsPage /></ProtectedRoute>} />
 
