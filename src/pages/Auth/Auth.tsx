@@ -47,42 +47,42 @@ export default function AuthPage() {
   };
 
   return (
-    <div className="flex h-screen w-screen items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-96">
-        <h1 className="text-4xl font-bold mb-6 text-center text-gray-800">Auth Page</h1>
+    <div className="flex min-h-screen items-center justify-center bg-gray-100 px-4 py-8">
+      <div className="bg-white p-12 rounded-lg shadow-lg w-full max-w-md">
+        <h1 className="text-5xl font-bold mb-8 text-center text-gray-800">Login</h1>
 
         {errorMsg && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
             {errorMsg}
           </div>
         )}
 
-        <form className="space-y-4">
+        <form className="space-y-6">
           <input
             type="email"
-            className="w-full border border-gray-300 p-2 rounded text-gray-800"
+            className="w-full border border-gray-300 p-3 rounded text-gray-800"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="password"
-            className="w-full border border-gray-300 p-2 rounded text-gray-800"
+            className="w-full border border-gray-300 p-3 rounded text-gray-800"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <div className="flex gap-2">
+          <div className="flex gap-3">
             <button
               type="button"
-              className="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              className="w-full bg-blue-500 text-white px-4 py-3 rounded hover:bg-blue-600 font-medium"
               onClick={handleSignUp}
             >
               SignUp
             </button>
             <button
               type="button"
-              className="w-full bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+              className="w-full bg-green-500 text-white px-4 py-3 rounded hover:bg-green-600 font-medium"
               onClick={handleLogin}
             >
               Login

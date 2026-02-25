@@ -77,8 +77,8 @@ export default function NewPTOPlanPage() {
             </div>
 
             {/* Save Button */}
-            <button onClick={handleSubmit} className='w-full bg-green-600 text-white p-2 rounded'>Save Plan</button>
-            <button onClick={() => navigate('/ptoplans')} className='w-full bg-gray-300 p-2 rounded'>Cancel</button>
+            <button onClick={handleSubmit} className='w-full bg-green-600 text-white p-2 rounded hover:bg-green-700'>Save Plan</button>
+            <button onClick={() => navigate('/ptoplans')} className='w-full bg-gray-300 p-2 rounded hover:bg-gray-400'>Cancel</button>
        
         </div>
     )

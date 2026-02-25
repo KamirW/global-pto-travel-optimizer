@@ -1,44 +1,48 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   // Importing functions from context
   const { user, signOut } = useAuth();
+  const location = useLocation();
+  const isAuthPage = location.pathname === '/auth' || (location.pathname === '/' && !user);
 
   return (
     <div>
-      {/* NAVBAR */}
-      <nav className="bg-blue-700 text-white px-6 py-4 flex justify-between items-center">
-        <Link to="/ptoplans" className="text-xl font-bold">
-          PTO Optimizer
-        </Link>
+      {/* NAVBAR - Hidden on auth page */}
+      {!isAuthPage && (
+        <nav className="bg-blue-700 text-white px-6 py-6 flex justify-between items-center">
+          <Link to="/ptoplans" className="text-xl font-bold">
+            PTO Optimizer
+          </Link>
 
-        <div className="flex items-center gap-4">
-          {user && (
-            <>
-              <Link to="/ptoplans" className="hover:underline">
-                PTO Plans
+          <div className="flex items-center gap-4">
+            {user && (
+              <>
+                <Link to="/ptoplans" className="hover:underline">
+                  PTO Plans
+                </Link>
+                <Link to="/trips" className="hover:underline">
+                  Trips
+                </Link>
+
+                <button onClick={signOut} className="bg-white text-blue-700 px-3 py-1 rounded hover:bg-gray-100">
+                  Logout
+                </button>
+              </>
+            )}
+
+            {!user && (
+              <Link to="/auth" className="bg-white text-blue-700 px-3 py-1 rounded hover:bg-gray-100">
+                Login
               </Link>
-              <Link to="/trips" className="hover:underline">
-                Trips
-              </Link>
-
-              <button onClick={signOut} className="bg-white text-blue-700 px-3 py-1 rounded">
-                Logout
-              </button>
-            </>
-          )}
-
-          {!user && (
-            <Link to="/auth" className="bg-white text-blue-700 px-3 py-1 rounded">
-              Login
-            </Link>
-          )}
-        </div>
-      </nav>
+            )}
+          </div>
+        </nav>
+      )}
 
       {/* Page Content */}
-      <main className="px-6 py-8">{children}</main>
+      <main className={isAuthPage ? '' : 'px-6 py-8'}>{children}</main>
     </div>
   );
 }
