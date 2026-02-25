@@ -18,19 +18,21 @@ export default function PTOPlansPage() {
   }, [user]);
 
   return (
-    <div>
-      <h1>Your PTO Plans</h1>
+    <div className="max-w-3xl mx-auto mt-10 space-y-6">
+      <h1 className="text-2xl font-bold">Your PTO Plans</h1>
 
-      <Link to="/ptopplans/new">Create New PTO Plan</Link>
+      <Link to="/ptoplans/new" className="inline-block bg-blue-600 text-white px-4 py-2 rounded">Create New PTO Plan</Link>
 
-      <div>
+        {/* List of PTO Plans */}
+      <div className="space-y-4">
+        {plans.length === 0 && (<p className="text-gray-600">You haven't create any plans yet.</p>)}
         {plans.map((plan) => (
-          <Link key={plan.id} to={`/ptoplans/${plan.id}`}>
+          <Link key={plan.id} to={`/ptoplans/${plan.id}`} className="block p-4 border rounded shadow bg-white hover:bg-gray-50 transition">
             <p>
-              <strong>Country:</strong> {plan.country}
+              <strong>Country:</strong> {plan.country_code}
             </p>
             <p>
-              <strong>Dates:</strong> {plan.startDate} -{">"} {plan.endDate}
+              <strong>Dates:</strong> {plan.start_date} -{">"} {plan.end_date}
             </p>
             <p>
               <strong>PTO Days:</strong> {plan.pto_days_available}

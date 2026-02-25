@@ -13,7 +13,11 @@ export function generateSuggestions(
   const start = new Date(startDate);
   const end = new Date(endDate);
 
-  for (let timeFrame = 5; timeFrame <= 10; timeFrame++) {
+  // Calculate the minimum timeframe based on the available date range
+  const dayRange = Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
+  const minTimeFrame = Math.min(3, dayRange); // Start from 3 days minimum, or less if range is smaller
+
+  for (let timeFrame = minTimeFrame; timeFrame <= dayRange; timeFrame++) {
     let current = new Date(start);
 
     while (current <= end) {
@@ -37,7 +41,7 @@ export function generateSuggestions(
       if (ptoNeeded <= ptoDaysAvailable) {
         suggestions.push({
           startDate: windowStart.toISOString().slice(0, 10),
-          startEnd: windowEnd.toISOString().slice(0, 10),
+          endDate: windowEnd.toISOString().slice(0, 10),
           ptoUsed: ptoNeeded,
           totalDaysOff: timeFrame,
         });
