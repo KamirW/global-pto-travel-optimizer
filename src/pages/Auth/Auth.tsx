@@ -75,14 +75,14 @@ export default function AuthPage() {
           <div className="flex gap-3">
             <button
               type="button"
-              className="w-full bg-blue-500 text-white px-4 py-3 rounded hover:bg-blue-600 font-medium"
+              className="w-full bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white px-4 py-3 rounded font-medium transition duration-200"
               onClick={handleSignUp}
             >
               SignUp
             </button>
             <button
               type="button"
-              className="w-full bg-green-500 text-white px-4 py-3 rounded hover:bg-green-600 font-medium"
+              className="w-full bg-green-500 hover:bg-green-600 active:bg-green-700 text-white px-4 py-3 rounded font-medium transition duration-200"
               onClick={handleLogin}
             >
               Login
