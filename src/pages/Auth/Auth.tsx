@@ -40,7 +40,7 @@ export default function AuthPage() {
 
     if (error) {
       console.error("Login error:", error);
-      setErrorMsg(error.message || "Login failed. Please try again.");
+      setErrorMsg(error.message.charAt(0).toUpperCase() + error.message.slice(1) || "Login failed. Please try again.");
     } else if (data?.session) {
       navigate("/ptoplans");
     }
