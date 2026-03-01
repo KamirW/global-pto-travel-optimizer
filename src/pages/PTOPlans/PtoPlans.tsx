@@ -34,7 +34,7 @@ export default function PTOPlansPage() {
           <Link 
             key={plan.id} 
             to={`/ptoplans/${plan.id}`} 
-            className="block p-4 sm:p-6 border rounded shadow bg-white hover:bg-gray-50 hover:shadow-md transition"
+            className="block p-4 sm:p-6 border rounded shadow bg-white hover:bg-gray-50 hover:shadow-md transition active:bg-gray-100 active:shadow-lg"
           >
             <p className="text-sm sm:text-base">
               <strong>Country:</strong> {plan.country_code}
