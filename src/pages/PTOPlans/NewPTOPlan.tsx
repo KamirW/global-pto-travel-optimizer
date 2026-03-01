@@ -41,17 +41,17 @@ export default function NewPTOPlanPage() {
     }
 
     return (
-        <div className='max-w-md mx-auto mt-10 space-y-6'>
-            <h1 className='text-2xl font-bold'>Create New PTO Plan</h1>
+        <div className='w-full max-w-md mx-auto space-y-4 sm:space-y-6'>
+            <h1 className='text-2xl sm:text-3xl md:text-4xl font-bold'>Create New PTO Plan</h1>
 
             {errorMsg && (
-                <p className='text-red-600 bg-red-100 p-2 rounded'>{errorMsg}</p>
+                <p className='text-red-600 bg-red-100 p-3 sm:p-4 rounded text-sm sm:text-base'>{errorMsg}</p>
             )}
 
             {/* Country */}
-            <div className="space-y-1">
-                <label className='font-medium'>Country</label>
-                <select value={country} onChange={(e) => setCountry(e.target.value)} className='w-full border p-2 rounded'>
+            <div className="space-y-2">
+                <label className='font-medium text-sm sm:text-base'>Country</label>
+                <select value={country} onChange={(e) => setCountry(e.target.value)} className='w-full border p-2 sm:p-3 rounded text-sm sm:text-base'>
                     <option value='US'>United States</option>
                     <option value='MX'>Mexico</option>
                     <option value='TR'>Turkey</option>
@@ -59,26 +59,26 @@ export default function NewPTOPlanPage() {
             </div>
             
             {/* Start Date */}
-            <div className='space-y-1'>
-                <label className='font-medium'>Start Date</label>
-                <input type='date' value={startDate} onChange={(e) => setStartDate(e.target.value)} className='w-full border p-2 rounded' />
+            <div className='space-y-2'>
+                <label className='font-medium text-sm sm:text-base'>Start Date</label>
+                <input type='date' value={startDate} onChange={(e) => setStartDate(e.target.value)} className='w-full border p-2 sm:p-3 rounded text-sm sm:text-base' />
             </div>
 
             {/* End Date */}
-            <div className='space-y-1'>
-                <label className='font-medium'>End Date</label>
-                <input type='date' value={endDate} onChange={(e) => setEndDate(e.target.value)} className='w-full border p-2 rounded'/>
+            <div className='space-y-2'>
+                <label className='font-medium text-sm sm:text-base'>End Date</label>
+                <input type='date' value={endDate} onChange={(e) => setEndDate(e.target.value)} className='w-full border p-2 sm:p-3 rounded text-sm sm:text-base'/>
             </div>
 
             {/* PTO Days */}
-            <div className='space-y-1'>
-                <label className='font-medium'>Pto Days Available </label>
-                <input type='number' placeholder='PTO days available ' value={ptoDays} onChange={(e) => setPtoDays(e.target.value)}  className='w-full border p-2 rounded'/>
+            <div className='space-y-2'>
+                <label className='font-medium text-sm sm:text-base'>PTO Days Available</label>
+                <input type='number' placeholder='PTO days available' value={ptoDays} onChange={(e) => setPtoDays(e.target.value)} className='w-full border p-2 sm:p-3 rounded text-sm sm:text-base'/>
             </div>
 
             {/* Save Button */}
-            <button onClick={handleSubmit} className='w-full bg-green-600 text-white p-2 rounded hover:bg-green-700'>Save Plan</button>
-            <button onClick={() => navigate('/ptoplans')} className='w-full bg-gray-300 p-2 rounded hover:bg-gray-400'>Cancel</button>
+            <button onClick={handleSubmit} className='w-full bg-green-600 hover:bg-green-700 active:bg-green-800 text-white p-2 sm:p-3 rounded font-medium text-sm sm:text-base transition duration-200'>Save Plan</button>
+            <button onClick={() => navigate('/ptoplans')} className='w-full bg-gray-300 hover:bg-gray-400 active:bg-gray-500 p-2 sm:p-3 rounded text-sm sm:text-base transition duration-200'>Cancel</button>
        
         </div>
     )
